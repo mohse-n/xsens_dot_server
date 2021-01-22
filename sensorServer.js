@@ -884,6 +884,7 @@ var transitions =
 		    
 	    // Similar to the peak detection algorithm.
 	    sensor = component.sensors[parameters.address];
+	    console.log(parameters.address);
 	    console.log(sensor.angle_im2);
 	    console.log(sensor.angle_im1);
 	    
