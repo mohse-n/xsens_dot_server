@@ -881,6 +881,19 @@ var transitions =
 	    {
             component.lastTimestamp = parameters.timestamp;
             component.csvBuffer += Object.values(parameters).join() + '\n';
+		    
+	    // Similar to the peak detection algorithm.
+	    sensor = component.sensors[parameters.address];
+	    console.log(sensor.angle_im2);
+	    console.log(sensor.angle_im1);
+	    
+	    sensor.angle_i = parameters.timestamp;
+	    sensor.angle_im2 = sensor.angle_im1;
+	    sensor.angle_im1 = sensor.angle_i;
+	
+	    console.log(sensor.angle_i);
+	    console.log("");
+	    //
 
             component.gui.sendGuiEvent( 'sensorOrientation', parameters );
 	    }
