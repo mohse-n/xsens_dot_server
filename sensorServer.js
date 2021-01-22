@@ -894,6 +894,9 @@ var transitions =
 	    console.log(sensor.angle_i);
 	    console.log("");
 	    //
+		// If angle_im1 is a peak and < target
+		    // send HTTP request for feedback. See httpTest.js
+	    //
 
             component.gui.sendGuiEvent( 'sensorOrientation', parameters );
 	    }
