@@ -43,7 +43,7 @@ var WebGuiHandler       = require('./webGuiHandler');
 var FunctionalComponent = require('./functionalComponent');
 var SyncManager         = require('./syncManager');
 var events              = require('events');
-
+const http              = require("http");
 // =======================================================================================
 // Constants
 // =======================================================================================
@@ -898,6 +898,31 @@ var transitions =
 		// If angle_im1 is a peak and < target
 		    // send HTTP request for feedback. See httpTest.js
 	    //
+	    // Just a simple example which uses acceleration for feedback.     
+	    if (parameters.address == "d4:ca:6e:f1:7d:d4" && parameters.freeAcc_z > 10){
+		
+		http.get("http://192.168.43.208/led/1",resp=>
+		{	
+	
+		    let data ="";
+	
+		    resp.on("data",chunk =>{
+	
+			data += chunk;
+	
+		    });
+
+		    resp.on("end",()=>{
+	
+			console.log(data);
+	
+		    });
+	
+	
+		});
+		
+	    }
+	    // End of the example. 
 
             component.gui.sendGuiEvent( 'sensorOrientation', parameters );
 	    }
