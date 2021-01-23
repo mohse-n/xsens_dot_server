@@ -123,7 +123,7 @@ class BleHandler
                 sensor.systemTimestamp = 0;
                 sensor.sensorTimestamp = 0;
                   
-                // Add more fields to the sensor object.
+                // Add more fields to the sensor object here.
                 sensor.angle_im2 = 0;
                 sensor.angle_im1 = 0;
                 sensor.angle_i = 0;
